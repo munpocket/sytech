@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!-- 不要ファイル -->
 @section('content')
 
 <div class="search_form">
@@ -46,7 +46,16 @@
             <td>{{ $product -> company_name }}</td>
     
             <td><button type="button" class="btn btn-more"><a href="#">{{  __('more') }}</a></button></td>
-            <td><button type="button" class="btn btn-remove">{{ __('remove') }}</button></td>
+            <td>
+                <form action="{{ route('remove', $product) }}" method="post">
+                    @csrf
+                    <!-- 削除メソッド、route,ModelとController編集 -->
+                    @method('delite')
+                    <button type="submit" class="btn btn-remove" onclick='return confirm("削除しますか？");'>
+                    {{ __('remove') }}
+                    </button>
+                </form>
+            </td>
         </tr> 
         
       

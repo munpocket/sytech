@@ -2,53 +2,67 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 
 // 商品情報一覧画面
 class productListController extends Controller
 {
+    public $products;
     // 全件表示
-    public function showList() {
+    public function showList() {       
         $model = new Product();
         $products = $model->getList();
 
         return view('productList', ['products' => $products]);
     }
 
-//  showListメソッド実行後
-    public function search(Request $request) {
+//  検索
+    public function searchList(Request $request) {
         $model = new Product();
-        $products = $model->getList();
-        $search_product_name = $request->input('searchProductName');
-        $search_company_name = $request->input('searchCompanyName');
+        $products = $model->searchList($request);
 
-        $search_products=Product::query();
-
-        if(isset($search_product_name) && isset($search_company_name)) {
-            $search_products->where('product_name', 'like', "%{ $search_product_name }%")
-                            ->where('company_name', $search_company_name);
-        }
-
-        elseif(isset($search_product_name) && is_null($search_company_name)) {
-            $search_products->where('product_name', 'like', "%{ $search_product_name }%");
-        }
-
-        elseif(is_null($search_product_name) && isset($search_company_name)) {
-            $search_products->where('company_name', $search_company_name);
-        }
-
-
-        return view('searchList', [
-            'search_product_name' => $search_product_name, 
-            'search_company_name' => $search_company_name, 
+        return view('productList', [
+            'search_product_name' => $request->searchProductName, 
+            'search_company_name' => $request->searchCompanyName, 
             'products' => $products, 
-            'search_products' => $search_products
-        ]
-        );
+        ]);
     }
 
+    // 削除
+    public function delete($id) {
+        $model = new Product();
+        $products = $model->deleteList($id);
+
+        return view('productList',[
+            'products' => $products,
+            ]);
+    }
+
+    // 新規登録画面へ遷移
+    public function add() {
+        return view('addProduct');
+    }
+
+    // 新規登録
+    public function added(ProductRequest $request) {
+
+        DB::beginTransaction();
+    
+        try {
+            $model = new Product();
+            $products = $model->addList($request);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return back();
+        }
+    
+        return view('addProduct');
+    } 
 }
 
 
