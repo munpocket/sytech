@@ -16,7 +16,6 @@
     </form>
 </div>
 
-<!-- route -->
 <div class="add_product">
     <button class="btn btn-add" type="button">
         <a href="{{ route('add') }}">{{ __('add item') }}</a>
@@ -38,11 +37,8 @@
 
     <tbody>
     
+    <!-- foreachは配列が空なら実行されない -->
     @foreach ($products as $products)
-    <!-- @if(empty($products))
-    <p>empty</p>
-    @break
-    @endif -->
         <tr>
             <td>{{ $products -> product_id }}</td>
             <td>{{ $products -> img_path }}</td>
@@ -51,11 +47,9 @@
             <td>{{ $products -> stock }}</td>
             <td>{{ $products -> company_name }}</td>
     
-            <td><button type="button" class="btn btn-more"><a href="#">{{ __('more') }}</a></button></td>
+            <td><button type="button" class="btn btn-more"><a href="{{ route('more', $products->product_id) }}">{{ __('more') }}</a></button></td>
             <td><a href="{{ route('delete', $products->product_id) }}"><input type="button" value="削除" onclick='return confirm("削除しますか？");'></a></td>
-            
         </tr>      
-    
     @endforeach
     </tbody>
 </table>

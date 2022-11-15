@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+// Hankakuを取り込む
 use App\Rules\Hankaku;
 
 class ProductRequest extends FormRequest
@@ -24,11 +25,12 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
+        // Hankakuを取り込むには[]表記
         return [
             'productName' => 'required | max:255',
             'companyName' => 'required',
-            'price' => 'required | max:11 | alpha_num | new Hankaku',
-            'stock' => 'required | max:11 | alpha_num | new Hankaku'
+            'price' => ['required', 'max:11', 'alpha_num', new Hankaku],
+            'stock' => ['required', 'max:11', 'alpha_num', new Hankaku]
         ];
     }
 

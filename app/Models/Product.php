@@ -38,12 +38,13 @@ class Product extends Model
         // 会社名のみ入っている場合
         elseif(!$request->searchProductName && $request->searchCompanyName) {
             $products = \DB::table('products')
-            ->where('company_id', $request->searchCompanyName);
+            -> where('company_id', $request->searchCompanyName);
         }
 
-        $products = $products -> leftjoin('companies','companies.id','=','products.company_id')
-                              -> select('products.*', 'products.id as product_id', 'companies.company_name')
-                              -> get();
+        $products = $products 
+        -> leftjoin('companies','companies.id','=','products.company_id')
+        -> select('products.*', 'products.id as product_id', 'companies.company_name')
+        -> get();
 
         return $products;
     }
@@ -51,10 +52,11 @@ class Product extends Model
     // 削除
     public function deleteList($id) {
         $data = \DB::table('products')
-        ->where('id', $id)
-        ->delete();
+        -> where('id', $id)
+        -> delete();
         
-        $products = \DB::table('products') -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
+        $products = \DB::table('products') 
+        -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
         -> select('products.*', 'products.id as product_id', 'companies.company_name')
         -> get();
 
@@ -70,9 +72,46 @@ class Product extends Model
             'price' => $request->price,
             'stock' => $request->stock,
             'comment' => $request->comment,
-            'img_path' => $request->img_path,
+            'img_path' => $request->img_path
            ]);
+    }
 
+    // 詳細画面
+    public function moreList($id) {
+        
+        $product = \DB::table('products')
+        -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
+        -> select('products.*', 'products.id as product_id', 'companies.company_name')
+        -> get();
+
+        $product = $product
+        -> where('product_id', $id)
+        -> first();
+        
+        return $product;
+    }
+
+    // 編集
+    public function updateList($request) {
+        
+        $data = \DB::table('products')
+        -> where('id', $request->id)
+        -> update([
+            'product_name' => $request->productName,
+            'company_id' => $request->companyName,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'comment' => $request->comment,
+            'img_path' => $request->img_path
+        ]);
+
+        $product = \DB::table('products')
+        -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
+        -> select('products.*', 'products.id as product_id', 'companies.company_name')
+        -> where('product_id', $request->id)
+        -> first();
+
+        return $product;
         
     }
 }

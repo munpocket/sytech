@@ -61,8 +61,46 @@ class productListController extends Controller
             return back();
         }
     
-        return view('addProduct');
+        return redirect('/productlist/add')->with('message', '商品を追加しました');
     } 
+
+    // 商品詳細画面
+    public function more($id) {
+        
+        $model = new Product();
+        $product = $model->moreList($id);
+        
+        return view('moreProduct', ['product' => $product]);
+    }
+
+    // 商品情報編集画面
+    public function edit($id) {
+
+        $model = new Product();
+        $product = $model->moreList($id);
+        
+        return view('editProduct', ['product' => $product]);
+    }
+
+    // 更新
+    public function update(ProductRequest $request) {
+
+        dd($request->id);
+        DB::beginTransaction();
+    
+        try {
+            $model = new Product();
+            $product = $model->updateList($request);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return back();
+        }
+        
+
+        return view('editProduct', ['product' => $product])->with('message', '商品を更新しました');
+
+    }
 }
 
 

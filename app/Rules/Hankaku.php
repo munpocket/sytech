@@ -35,6 +35,6 @@ class Hankaku implements Rule
      */
     public function message()
     {
-        return ':attribute は半角数字で入力してください';
+        return ':attributeは半角数字で入力してください';
     }
 }

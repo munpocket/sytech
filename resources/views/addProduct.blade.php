@@ -36,5 +36,10 @@
     <button type="submit" value="登録"></button>
 </form>
 
-<a href="{{ route('list')}}">戻る</a>
+<a href="{{ route('list')}}" class="btn">戻る</a>
+@if (session('message'))
+    <div class="alert alert-danger">
+        {{ session('message') }}
+    </div>
+@endif
 @endsection
