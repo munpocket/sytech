@@ -11,7 +11,7 @@ class Product extends Model
     public $products;
 
     // 取得、結合
-    public function getList() {
+    public function getList () {
         $products = \DB::table('products') 
         -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
         -> select('products.*', 'products.id as product_id', 'companies.company_name')
@@ -21,24 +21,19 @@ class Product extends Model
     }
 
     // 検索
-    public function searchList($request) {
-        //2つとも入っている場合　→isset,is_nullはあってもいいけどなくてもよい
-        if($request->searchProductName && $request->searchCompanyName) {
-            $products = \DB::table('products')
-            ->where('product_name', 'like', '%'.$request->searchProductName.'%')
-            ->where('company_id', $request->searchCompanyName);
+    public function searchList ($request) {
+        
+        $products = \DB::table('products');
+        // 商品名が入っている場合
+        if ($request -> searchProductName) {
+            $products = $products
+            -> where('product_name', 'like', '%'.$request -> searchProductName.'%');
         }
-
-        // 商品名のみ入っている場合
-        elseif($request->searchProductName && !$request->searchCompanyName) {
-            $products = \DB::table('products')
-            ->where('product_name', 'like', '%'.$request->searchProductName.'%');
-        }
-
-        // 会社名のみ入っている場合
-        elseif(!$request->searchProductName && $request->searchCompanyName) {
-            $products = \DB::table('products')
-            -> where('company_id', $request->searchCompanyName);
+        // 会社名が入っている場合
+        if ($request -> searchCompanyName && $request -> searchCompanyName !== 0) {
+            
+            $products = $products
+            -> where('company_id', $request -> searchCompanyName);
         }
 
         $products = $products 
@@ -50,7 +45,7 @@ class Product extends Model
     }
     
     // 削除
-    public function deleteList($id) {
+    public function deleteList ($id) {
         $data = \DB::table('products')
         -> where('id', $id)
         -> delete();
@@ -64,21 +59,20 @@ class Product extends Model
     }
 
     // 追加
-    public function addList($request) {
+    public function addList ($request) {
         $data = \DB::table('products')
         -> insert([
-            'product_name' => $request->productName,
-            'company_id' => $request->companyName,
-            'price' => $request->price,
-            'stock' => $request->stock,
-            'comment' => $request->comment,
-            'img_path' => $request->img_path
+            'product_name' => $request -> productName,
+            'company_id' => $request -> companyName,
+            'price' => $request -> price,
+            'stock' => $request -> stock,
+            'comment' => $request -> comment,
+            'img_path' => $request -> img_path
            ]);
     }
 
     // 詳細画面
-    public function moreList($id) {
-        
+    public function moreList ($id) {
         $product = \DB::table('products')
         -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
         -> select('products.*', 'products.id as product_id', 'companies.company_name')
@@ -92,28 +86,27 @@ class Product extends Model
     }
 
     // 編集
-    public function updateList($request) {
-        
+    public function updateList ($request) {
         $data = \DB::table('products')
-        -> where('id', $request->id)
+        -> where('id', $request -> id)
         -> update([
-            'product_name' => $request->productName,
-            'company_id' => $request->companyName,
-            'price' => $request->price,
-            'stock' => $request->stock,
-            'comment' => $request->comment,
-            'img_path' => $request->img_path
+            'product_name' => $request -> productName,
+            'company_id' => $request -> companyName,
+            'price' => $request -> price,
+            'stock' => $request -> stock,
+            'comment' => $request -> comment,
+            'img_path' => $request -> img_path
         ]);
 
         $product = \DB::table('products')
         -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
         -> select('products.*', 'products.id as product_id', 'companies.company_name')
+        -> get();
+
+        $product = $product
         -> where('product_id', $request->id)
         -> first();
 
         return $product;
-        
     }
 }
-
-

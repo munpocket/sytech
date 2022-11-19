@@ -1,0 +1,263 @@
+C:\Users\81904>cd C:\MAMP\htdocs
+
+C:\MAMP\htdocs>composer create-project --prefer-dist laravel/laravel practice "6.*"
+Creating a "laravel/laravel" project at "./practice"
+Info from https://repo.packagist.org: #StandWithUkraine
+Installing laravel/laravel (v6.20.1)
+  - Installing laravel/laravel (v6.20.1): Extracting archive
+Created project in C:\MAMP\htdocs\practice
+> @php -r "file_exists('.env') || copy('.env.example', '.env');"
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 88 installs, 0 updates, 0 removals
+  - Locking doctrine/inflector (2.0.5)
+  - Locking doctrine/instantiator (1.4.1)
+  - Locking doctrine/lexer (1.2.3)
+  - Locking dragonmantank/cron-expression (v2.3.1)
+  - Locking egulias/email-validator (2.1.25)
+  - Locking facade/flare-client-php (1.10.0)
+  - Locking facade/ignition (1.18.1)
+  - Locking facade/ignition-contracts (1.0.2)
+  - Locking fakerphp/faker (v1.20.0)
+  - Locking fideloper/proxy (4.4.2)
+  - Locking filp/whoops (2.14.5)
+  - Locking hamcrest/hamcrest-php (v2.0.1)
+  - Locking laravel/framework (v6.20.44)
+  - Locking laravel/tinker (v2.7.2)
+  - Locking league/commonmark (1.6.7)
+  - Locking league/flysystem (1.1.10)
+  - Locking league/mime-type-detection (1.11.0)
+  - Locking mockery/mockery (1.5.1)
+  - Locking monolog/monolog (2.8.0)
+  - Locking myclabs/deep-copy (1.11.0)
+  - Locking nesbot/carbon (2.62.1)
+  - Locking nikic/php-parser (v4.15.1)
+  - Locking nunomaduro/collision (v3.2.0)
+  - Locking opis/closure (3.6.3)
+  - Locking paragonie/random_compat (v9.99.100)
+  - Locking phar-io/manifest (2.0.3)
+  - Locking phar-io/version (3.2.1)
+  - Locking php-parallel-lint/php-console-color (v0.3)
+  - Locking php-parallel-lint/php-console-highlighter (v0.5)
+  - Locking phpoption/phpoption (1.9.0)
+  - Locking phpunit/php-code-coverage (9.2.17)
+  - Locking phpunit/php-file-iterator (3.0.6)
+  - Locking phpunit/php-invoker (3.1.1)
+  - Locking phpunit/php-text-template (2.0.4)
+  - Locking phpunit/php-timer (5.0.3)
+  - Locking phpunit/phpunit (9.5.25)
+  - Locking psr/container (1.1.2)
+  - Locking psr/log (2.0.0)
+  - Locking psr/simple-cache (1.0.1)
+  - Locking psy/psysh (v0.11.8)
+  - Locking ramsey/uuid (3.9.6)
+  - Locking scrivo/highlight.php (v9.18.1.9)
+  - Locking sebastian/cli-parser (1.0.1)
+  - Locking sebastian/code-unit (1.0.8)
+  - Locking sebastian/code-unit-reverse-lookup (2.0.3)
+  - Locking sebastian/comparator (4.0.8)
+  - Locking sebastian/complexity (2.0.2)
+  - Locking sebastian/diff (4.0.4)
+  - Locking sebastian/environment (5.1.4)
+  - Locking sebastian/exporter (4.0.5)
+  - Locking sebastian/global-state (5.0.5)
+  - Locking sebastian/lines-of-code (1.0.3)
+  - Locking sebastian/object-enumerator (4.0.4)
+  - Locking sebastian/object-reflector (2.0.4)
+  - Locking sebastian/recursion-context (4.0.4)
+  - Locking sebastian/resource-operations (3.0.3)
+  - Locking sebastian/type (3.2.0)
+  - Locking sebastian/version (3.0.2)
+  - Locking swiftmailer/swiftmailer (v6.3.0)
+  - Locking symfony/console (v4.4.45)
+  - Locking symfony/css-selector (v6.1.3)
+  - Locking symfony/debug (v4.4.44)
+  - Locking symfony/deprecation-contracts (v3.1.1)
+  - Locking symfony/error-handler (v4.4.44)
+  - Locking symfony/event-dispatcher (v4.4.44)
+  - Locking symfony/event-dispatcher-contracts (v1.1.13)
+  - Locking symfony/finder (v4.4.44)
+  - Locking symfony/http-client-contracts (v2.5.2)
+  - Locking symfony/http-foundation (v4.4.46)
+  - Locking symfony/http-kernel (v4.4.46)
+  - Locking symfony/mime (v5.4.13)
+  - Locking symfony/polyfill-ctype (v1.26.0)
+  - Locking symfony/polyfill-iconv (v1.26.0)
+  - Locking symfony/polyfill-intl-idn (v1.26.0)
+  - Locking symfony/polyfill-intl-normalizer (v1.26.0)
+  - Locking symfony/polyfill-mbstring (v1.26.0)
+  - Locking symfony/polyfill-php72 (v1.26.0)
+  - Locking symfony/polyfill-php73 (v1.26.0)
+  - Locking symfony/polyfill-php80 (v1.26.0)
+  - Locking symfony/process (v4.4.44)
+  - Locking symfony/routing (v4.4.44)
+  - Locking symfony/service-contracts (v2.5.2)
+  - Locking symfony/translation (v4.4.45)
+  - Locking symfony/translation-contracts (v2.5.2)
+  - Locking symfony/var-dumper (v4.4.46)
+  - Locking theseer/tokenizer (1.2.1)
+  - Locking tijsverkoyen/css-to-inline-styles (2.2.5)
+  - Locking vlucas/phpdotenv (v3.6.10)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 88 installs, 0 updates, 0 removals
+  - Installing doctrine/inflector (2.0.5): Extracting archive
+  - Installing doctrine/lexer (1.2.3): Extracting archive
+  - Installing dragonmantank/cron-expression (v2.3.1): Extracting archive
+  - Installing symfony/polyfill-php80 (v1.26.0): Extracting archive
+  - Installing symfony/polyfill-php72 (v1.26.0): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.26.0): Extracting archive
+  - Installing symfony/var-dumper (v4.4.46): Extracting archive
+  - Installing symfony/deprecation-contracts (v3.1.1): Extracting archive
+  - Installing psr/container (1.1.2): Extracting archive
+  - Installing symfony/service-contracts (v2.5.2): Extracting archive
+  - Installing symfony/polyfill-php73 (v1.26.0): Extracting archive
+  - Installing symfony/console (v4.4.45): Extracting archive
+  - Installing scrivo/highlight.php (v9.18.1.9): Extracting archive
+  - Installing psr/log (2.0.0): Extracting archive
+  - Installing monolog/monolog (2.8.0): Extracting archive
+  - Installing symfony/polyfill-ctype (v1.26.0): Extracting archive
+  - Installing phpoption/phpoption (1.9.0): Extracting archive
+  - Installing vlucas/phpdotenv (v3.6.10): Extracting archive
+  - Installing symfony/css-selector (v6.1.3): Extracting archive
+  - Installing tijsverkoyen/css-to-inline-styles (2.2.5): Extracting archive
+  - Installing symfony/routing (v4.4.44): Extracting archive
+  - Installing symfony/process (v4.4.44): Extracting archive
+  - Installing symfony/polyfill-intl-normalizer (v1.26.0): Extracting archive
+  - Installing symfony/polyfill-intl-idn (v1.26.0): Extracting archive
+  - Installing symfony/mime (v5.4.13): Extracting archive
+  - Installing symfony/http-foundation (v4.4.46): Extracting archive
+  - Installing symfony/http-client-contracts (v2.5.2): Extracting archive
+  - Installing symfony/event-dispatcher-contracts (v1.1.13): Extracting archive
+  - Installing symfony/event-dispatcher (v4.4.44): Extracting archive
+  - Installing symfony/debug (v4.4.44): Extracting archive
+  - Installing symfony/error-handler (v4.4.44): Extracting archive
+  - Installing symfony/http-kernel (v4.4.46): Extracting archive
+  - Installing symfony/finder (v4.4.44): Extracting archive
+  - Installing symfony/polyfill-iconv (v1.26.0): Extracting archive
+  - Installing egulias/email-validator (2.1.25): Extracting archive
+  - Installing swiftmailer/swiftmailer (v6.3.0): Extracting archive
+  - Installing paragonie/random_compat (v9.99.100): Extracting archive
+  - Installing ramsey/uuid (3.9.6): Extracting archive
+  - Installing psr/simple-cache (1.0.1): Extracting archive
+  - Installing opis/closure (3.6.3): Extracting archive
+  - Installing symfony/translation-contracts (v2.5.2): Extracting archive
+  - Installing symfony/translation (v4.4.45): Extracting archive
+  - Installing nesbot/carbon (2.62.1): Extracting archive
+  - Installing league/mime-type-detection (1.11.0): Extracting archive
+  - Installing league/flysystem (1.1.10): Extracting archive
+  - Installing league/commonmark (1.6.7): Extracting archive
+  - Installing laravel/framework (v6.20.44): Extracting archive
+  - Installing filp/whoops (2.14.5): Extracting archive
+  - Installing facade/ignition-contracts (1.0.2): Extracting archive
+  - Installing facade/flare-client-php (1.10.0): Extracting archive
+  - Installing facade/ignition (1.18.1): Extracting archive
+  - Installing fakerphp/faker (v1.20.0): Extracting archive
+  - Installing fideloper/proxy (4.4.2): Extracting archive
+  - Installing nikic/php-parser (v4.15.1): Extracting archive
+  - Installing psy/psysh (v0.11.8): Extracting archive
+  - Installing laravel/tinker (v2.7.2): Extracting archive
+  - Installing hamcrest/hamcrest-php (v2.0.1): Extracting archive
+  - Installing mockery/mockery (1.5.1): Extracting archive
+  - Installing php-parallel-lint/php-console-color (v0.3): Extracting archive
+  - Installing php-parallel-lint/php-console-highlighter (v0.5): Extracting archive
+  - Installing nunomaduro/collision (v3.2.0): Extracting archive
+  - Installing sebastian/version (3.0.2): Extracting archive
+  - Installing sebastian/type (3.2.0): Extracting archive
+  - Installing sebastian/resource-operations (3.0.3): Extracting archive
+  - Installing sebastian/recursion-context (4.0.4): Extracting archive
+  - Installing sebastian/object-reflector (2.0.4): Extracting archive
+  - Installing sebastian/object-enumerator (4.0.4): Extracting archive
+  - Installing sebastian/global-state (5.0.5): Extracting archive
+  - Installing sebastian/exporter (4.0.5): Extracting archive
+  - Installing sebastian/environment (5.1.4): Extracting archive
+  - Installing sebastian/diff (4.0.4): Extracting archive
+  - Installing sebastian/comparator (4.0.8): Extracting archive
+  - Installing sebastian/code-unit (1.0.8): Extracting archive
+  - Installing sebastian/cli-parser (1.0.1): Extracting archive
+  - Installing phpunit/php-timer (5.0.3): Extracting archive
+  - Installing phpunit/php-text-template (2.0.4): Extracting archive
+  - Installing phpunit/php-invoker (3.1.1): Extracting archive
+  - Installing phpunit/php-file-iterator (3.0.6): Extracting archive
+  - Installing theseer/tokenizer (1.2.1): Extracting archive
+  - Installing sebastian/lines-of-code (1.0.3): Extracting archive
+  - Installing sebastian/complexity (2.0.2): Extracting archive
+  - Installing sebastian/code-unit-reverse-lookup (2.0.3): Extracting archive
+  - Installing phpunit/php-code-coverage (9.2.17): Extracting archive
+  - Installing phar-io/version (3.2.1): Extracting archive
+  - Installing phar-io/manifest (2.0.3): Extracting archive
+  - Installing myclabs/deep-copy (1.11.0): Extracting archive
+  - Installing doctrine/instantiator (1.4.1): Extracting archive
+  - Installing phpunit/phpunit (9.5.25): Extracting archive
+82 package suggestions were added by new dependencies, use `composer suggest` to see details.
+Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+Package symfony/debug is abandoned, you should avoid using it. Use symfony/error-handler instead.
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+Deprecation Notice: Return type of Illuminate\Container\Container::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Container\Container.php:1231
+Deprecation Notice: Return type of Illuminate\Container\Container::offsetGet($key) should either be compatible with ArrayAccess::offsetGet(mixed $offset): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Container\Container.php:1242
+Deprecation Notice: Return type of Illuminate\Container\Container::offsetSet($key, $value) should either be compatible with ArrayAccess::offsetSet(mixed $offset, mixed $value): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Container\Container.php:1254
+Deprecation Notice: Return type of Illuminate\Container\Container::offsetUnset($key) should either be compatible with ArrayAccess::offsetUnset(mixed $offset): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Container\Container.php:1267
+> @php artisan package:discover --ansi
+
+PHP Fatal error:  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of Illuminate\Support\Collection::offsetExists($key) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Support\Collection.php:1277
+Stack trace:
+#0 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Support\Collection.php(11): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError()
+#1 C:\MAMP\htdocs\practice\vendor\composer\ClassLoader.php(571): include('...')
+#2 C:\MAMP\htdocs\practice\vendor\composer\ClassLoader.php(428): Composer\Autoload\includeFile()
+#3 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Support\helpers.php(109): Composer\Autoload\ClassLoader->loadClass()
+#4 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(130): collect()
+#5 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(106): Illuminate\Foundation\PackageManifest->build()
+#6 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(89): Illuminate\Foundation\PackageManifest->getManifest()
+#7 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\PackageManifest.php(78): Illuminate\Foundation\PackageManifest->config()
+#8 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\RegisterFacades.php(26): Illuminate\Foundation\PackageManifest->aliases()
+#9 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(219): Illuminate\Foundation\Bootstrap\RegisterFacades->bootstrap()
+#10 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(320): Illuminate\Foundation\Application->bootstrapWith()
+#11 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(129): Illuminate\Foundation\Console\Kernel->bootstrap()
+#12 C:\MAMP\htdocs\practice\artisan(37): Illuminate\Foundation\Console\Kernel->handle()
+#13 {main} in C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Support\Collection.php on line 11
+In Collection.php line 11:
+
+  During inheritance of ArrayAccess: Uncaught ErrorException: Return type of
+  Illuminate\Support\Collection::offsetExists($key) should either be compatib
+  le with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTyp
+  eWillChange] attribute should be used to temporarily suppress the notice in
+   C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Support\Co
+  llection.php:1277
+  Stack trace:
+  #0 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Support\
+  Collection.php(11): Illuminate\Foundation\Bootstrap\HandleExceptions->handl
+  eError()
+  #1 C:\MAMP\htdocs\practice\vendor\composer\ClassLoader.php(571): include('.
+  ..')
+  #2 C:\MAMP\htdocs\practice\vendor\composer\ClassLoader.php(428): Composer\A
+  utoload\includeFile()
+  #3 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Support\
+  helpers.php(109): Composer\Autoload\ClassLoader->loadClass()
+  #4 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundati
+  on\PackageManifest.php(130): collect()
+  #5 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundati
+  on\PackageManifest.php(106): Illuminate\Foundation\PackageManifest->build()
+  #6 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundati
+  on\PackageManifest.php(89): Illuminate\Foundation\PackageManifest->getManif
+  est()
+  #7 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundati
+  on\PackageManifest.php(78): Illuminate\Foundation\PackageManifest->config()
+  #8 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundati
+  on\Bootstrap\RegisterFacades.php(26): Illuminate\Foundation\PackageManifest
+  ->aliases()
+  #9 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundati
+  on\Application.php(219): Illuminate\Foundation\Bootstrap\RegisterFacades->b
+  ootstrap()
+  #10 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundat
+  ion\Console\Kernel.php(320): Illuminate\Foundation\Application->bootstrapWi
+  th()
+  #11 C:\MAMP\htdocs\practice\vendor\laravel\framework\src\Illuminate\Foundat
+  ion\Console\Kernel.php(129): Illuminate\Foundation\Console\Kernel->bootstra
+  p()
+  #12 C:\MAMP\htdocs\practice\artisan(37): Illuminate\Foundation\Console\Kern
+  el->handle()
+  #13 {main}
+
+
+Script @php artisan package:discover --ansi handling the post-autoload-dump event returned with error code 255
