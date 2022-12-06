@@ -15,15 +15,18 @@ class Product extends Model
         $products = \DB::table('products') 
         -> leftjoin('companies', 'products.company_id', '=', 'companies.id')
         -> select('products.*', 'products.id as product_id', 'companies.company_name')
+        -> orderBy('product_id', 'asc')
         -> get();
 
         return $products;
     }
+   
 
     // 検索
     public function searchList ($request) {
         
         $products = \DB::table('products');
+        
         // 商品名が入っている場合
         if ($request -> searchProductName) {
             $products = $products
@@ -31,14 +34,78 @@ class Product extends Model
         }
         // 会社名が入っている場合
         if ($request -> searchCompanyName && $request -> searchCompanyName !== 0) {
-            
             $products = $products
             -> where('company_id', $request -> searchCompanyName);
+        }
+
+        if ($request -> searchLowerPrice && $request -> searchLowerPrice !== 0) {
+            $products = $products
+            -> where('price', '>=', $request -> searchLowerPrice);
+        }
+
+        if ($request -> searchUpperPrice && $request -> searchUpperPrice !== 0) {
+            $products = $products
+            -> where('price', '<=', $request -> searchUpperPrice);
+        }
+
+        if ($request -> searchLowerStock && $request -> searchLowerStock !== 0) {
+            $products = $products
+            -> where('stock', '>=', $request -> searchLowerStock);
+        }
+
+        if ($request -> searchUpperStock && $request -> searchUpperStock !== 0) {
+            $products = $products
+            -> where('stock', '<=', $request -> searchUpperStock);
         }
 
         $products = $products 
         -> leftjoin('companies','companies.id','=','products.company_id')
         -> select('products.*', 'products.id as product_id', 'companies.company_name')
+        -> get();
+
+        return $products;
+    }
+
+
+    // ソート
+    public function sortList ($request) {
+        $products = \DB::table('products');
+        
+        // 商品名が入っている場合
+        if ($request -> searchProductName) {
+            $products = $products
+            -> where('product_name', 'like', '%'.$request -> searchProductName.'%');
+        }
+        // 会社名が入っている場合
+        if ($request -> searchCompanyName && $request -> searchCompanyName !== 0) {
+            $products = $products
+            -> where('company_id', $request -> searchCompanyName);
+        }
+
+        if ($request -> searchLowerPrice && $request -> searchLowerPrice !== 0) {
+            $products = $products
+            -> where('price', '>=', $request -> searchLowerPrice);
+        }
+
+        if ($request -> searchUpperPrice && $request -> searchUpperPrice !== 0) {
+            $products = $products
+            -> where('price', '<=', $request -> searchUpperPrice);
+        }
+
+        if ($request -> searchLowerStock && $request -> searchLowerStock !== 0) {
+            $products = $products
+            -> where('stock', '>=', $request -> searchLowerStock);
+        }
+
+        if ($request -> searchUpperStock && $request -> searchUpperStock !== 0) {
+            $products = $products
+            -> where('stock', '<=', $request -> searchUpperStock);
+        }
+
+        $products = $products 
+        -> leftjoin('companies','companies.id','=','products.company_id')
+        -> select('products.*', 'products.id as product_id', 'companies.company_name')
+        -> orderBy($request -> hidC, $request -> hidA)
         -> get();
 
         return $products;
@@ -108,5 +175,20 @@ class Product extends Model
         -> first();
 
         return $product;
+    }
+
+    // 購入
+    public function sale ($request) {
+        
+        $data = \DB::table('products')
+        -> where('id', $request -> id)
+        -> decrement('stock');
+
+        $product = \DB::table('products')
+        -> where('id', $request -> id)
+        -> get();
+
+        return $product; 
+        
     }
 }

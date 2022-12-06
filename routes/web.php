@@ -19,9 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
+Route::middleware('auth')->group(function(){
 Route::get('/productlist', 'productListController@showList') -> name('list');
 Route::post('/productlist/search', 'productListController@searchList') -> name('search');
+Route::post('/productlist/sort', 'productListController@sortList') -> name('sort');
 Route::get('/productlist/delete/{id}', 'productListController@delete') -> name('delete');
 Route::get('/productlist/add', 'productListController@add') -> name('add');
 Route::post('/productlist/add', 'productListController@added') -> name('added');

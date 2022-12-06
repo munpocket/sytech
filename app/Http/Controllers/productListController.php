@@ -20,17 +20,34 @@ class productListController extends Controller
         return view('show_product', ['products' => $products]);
     }
 
+
     // 検索
     public function searchList (Request $request) {
 
         $model = new Product();
         $products = $model -> searchList($request);
 
-        return view('show_product', [
-            'search_product_name' => $request -> searchProductName, 
-            'search_company_name' => $request -> searchCompanyName, 
-            'products' => $products
-        ]);
+        return response()->json($products);
+        // return response()->json([
+        //     'search_product_name' => $request -> searchProductName, 
+        //     'search_company_name' => $request -> searchCompanyName, 
+        //     'products' => $products
+        // ]);
+
+        // return view('show_product', [
+        //     'search_product_name' => $request -> searchProductName, 
+        //     'search_company_name' => $request -> searchCompanyName, 
+        //     'products' => $products
+        // ]);
+    }
+
+    // ソート
+    public function sortList (Request $request) {
+
+        $model = new Product();
+        $products = $model -> sortList($request);
+
+        return response()->json($products);
     }
 
     // 削除
@@ -38,7 +55,9 @@ class productListController extends Controller
         $model = new Product();
         $products = $model -> deleteList($id);
 
-        return view('show_product', ['products' => $products,]);
+        return response()->json($products);
+
+        // return view('show_product', ['products' => $products,]);
     }
 
     // 新規登録画面へ遷移

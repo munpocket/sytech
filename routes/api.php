@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +14,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::match(['get', 'post'], '/sales', 'API\SalesController@sales');　これを作って実行後post送信可能になった
+Route::post('/sales', 'API\SalesController@sales');
